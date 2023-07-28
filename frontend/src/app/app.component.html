@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: white;">
+  <div class="container">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/public"><img src="assets/imagenes_pasantias/logoups.png" alt="Logo de la Universidad Politécnica Salesiana" style="vertical-align: middle; margin-right: 10px; width: 150px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <ng-container *ngIf="!authService.logeado(); else loggedIn2">
+        </ng-container>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <ng-container *ngIf="!authService.logeado(); else loggedIn">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/public" routerLinkActive="active" class="btn">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/info" routerLinkActive="active" class="btn">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active" class="btn">Iniciar Sesion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/registro" routerLinkActive="active" class="btn">Registrarse</a>
+            </li>
+          </ng-container>
+          <ng-template #loggedIn2>
+          </ng-template>
+          <ng-template #loggedIn>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/public" routerLinkActive="active" class="btn">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/private" routerLinkActive="active" class="btn">Sitio Privado</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/perfil" routerLinkActive="active" class="btn">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="cursor:pointer;" (click)="authService.logout()" class="btn">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/upload" routerLinkActive="active" class="btn">Subir</a>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

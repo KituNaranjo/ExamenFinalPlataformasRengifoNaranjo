@@ -1,0 +1,30 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
+                        <div class="input-group mb-3 input-file">
+                            <input type="file" class="form-control" id="inputGroupFile02" formControlName="file">
+                            <img *ngIf="image" class="img-fliud img-thumbnail image" src="{{image}}">
+                        </div>
+                        <br>
+                        <div class="form-gorp">
+                            <input type="text" placeholder="Titulo" class="form-control" formControlName="nombre" >
+                        </div>
+                        <br>
+                       <div class="form-group">
+                            <textarea  class="form-control" placeholder="Descripción" formControlName="description" ></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success" type="submit">Subir</button>
+                            </div>
+                        </div>                      
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
